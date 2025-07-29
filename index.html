@@ -22,151 +22,128 @@
 </head>
 <body class="bg-gray-50 text-gray-900">
   <div class="access-denied">Accès refusé. Veuillez contacter l'administrateur.</div>
-  <div id="content" class="max-w-5xl mx-auto p-6 space-y-12">
+  <div id="content" class="max-w-6xl mx-auto p-6 space-y-16">
 
-    <!-- Header -->
+    <!-- Header + Primary CTA -->
     <section class="text-center space-y-4">
-      <h1 class="text-4xl font-bold">Proposition Re-FAP x Carter-Cash</h1>
-      <p class="text-lg text-gray-600">
-        Déploiement national – Écosystème FAP clé en main pour générer du trafic, fidéliser et créer de la marge localement.
-      </p>
+      <h1 class="text-5xl font-bold">Proposition Re-FAP x Carter-Cash</h1>
+      <p class="text-xl text-gray-600">Déploiement national – Écosystème FAP clé en main pour générer du trafic, fidéliser et créer de la marge localement.</p>
+      <div class="flex justify-center space-x-4">
+        <button class="bg-blue-600 text-white px-6 py-3 rounded shadow">Demander une démo</button>
+        <button class="bg-green-600 text-white px-6 py-3 rounded shadow">Valider le déploiement</button>
+      </div>
     </section>
 
-    <!-- 1. Contexte -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">1. Contexte & Ambition</h2>
-        <p>
-          Après deux ans de test concluant sur 2 centres Carter-Cash, vous avez sollicité l’ajout de 8 machines supplémentaires.
-          Notre objectif : industrialiser ce modèle éprouvé dans votre réseau pour répondre efficacement à la problématique FAP,
-          générer du trafic local qualifié, et positionner Carter-Cash comme acteur éco-responsable de l’entretien auto.
-        </p>
+    <!-- Grid Layout: Sections in two columns on lg -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Contexte -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">1. Contexte & Ambition</h2>
+        <p>Après deux ans de test concluant sur 2 centres Carter-Cash, vous avez sollicité l’ajout de 8 machines supplémentaires. Notre objectif : industrialiser ce modèle éprouvé pour répondre efficacement à la problématique FAP, générer du trafic local qualifié, et positionner Carter-Cash comme acteur éco-responsable.</p>
       </div>
-    </div>
-
-    <!-- 2. Offre -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">2. Offre clé en main</h2>
-        <p>Le forfait mensuel par machine inclut :</p>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>Machine de nettoyage FAP V2 + kit de vidange intégré</li>
-          <li>Installation, maintenance préventive et hotline technique</li>
-          <li>Création et animation d’un réseau local de garages partenaires</li>
-          <li>Déploiement du chatbot IA Re-FAP (en bêta test, déjà performant)</li>
-          <li>Campagnes de communication nationale et génération de leads via influenceurs</li>
-          <li>Suivi des performances, reporting mensuel et optimisations continues</li>
+      <!-- Offre -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">2. Offre clé en main</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Machine de nettoyage FAP V2 + kit de vidange</li>
+          <li>Installation, maintenance et hotline</li>
+          <li>Réseau local de garages partenaires</li>
+          <li>Chatbot IA Re-FAP (bêta)</li>
+          <li>Campagnes nationales & influenceurs</li>
+          <li>Suivi, reporting et optimisations</li>
         </ul>
       </div>
-    </div>
 
-    <!-- 3. Marché -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">3. Donnée marché</h2>
-        <p>
-          <strong>90 %</strong> des automobilistes rencontrant un problème de FAP n’ont ni l’outil, ni la compétence pour le démonter.
-          Les magasins Carter-Cash ne proposent pas la prestation complète.
-          Pour capter ce flux, Re-FAP structure un maillage local de garages partenaires autour de chaque implantation.
-        </p>
-        <p>
-          Ces garages : diagnostic, démontage, acheminement pour nettoyage sur place et remontage dans la journée.
-          Un service rapide, conforme, <strong>jusqu’à 10× moins cher</strong> qu’un remplacement FAP.
-        </p>
+      <!-- Donnée marché -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">3. Donnée marché</h2>
+        <p><strong>90 %</strong> des automobilistes avec un FAP bouché n’ont ni l’outil, ni la compétence pour le démonter. Les magasins Carter-Cash ne proposent pas la prestation complète.</p>
+        <p>Re-FAP déploie un réseau de garages relais pour diagnostiquer, démonter, nettoyer et remonter le FAP dans la journée, à <strong>jusqu’à 10× moins cher</strong> qu’un remplacement.</p>
       </div>
-    </div>
-
-    <!-- 4. Fonctionnement -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">4. Fonctionnement du dispositif</h2>
-        <p>
-          <strong>Parcours client :</strong>
-        </p>
-        <ol class="list-decimal pl-6 space-y-2">
-          <li>Le client rencontre un souci moteur et contacte notre chatbot IA.</li>
-          <li>Le bot analyse les symptômes, identifie un FAP potentiellement bouché.</li>
-          <li>Il géolocalise l’utilisateur et l’oriente vers le garage partenaire le plus proche du Carter-Cash.</li>
-          <li>Le garage prend en charge, nettoie le FAP sur place (machine V2) et remonte le filtre le jour même.</li>
+      <!-- Fonctionnement -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">4. Fonctionnement</h2>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li>Le client contacte le chatbot IA.</li>
+          <li>Identification du FAP bouché.</li>
+          <li>Géolocalisation et orientation vers un garage partenaire.</li>
+          <li>Nettoyage sur place et remontage le jour même.</li>
         </ol>
-        <p>
-          <strong>Bénéfices :</strong> Simplification totale du process, satisfaction client, et marge optimisée pour tous.
-        </p>
+        <p class="mt-2"><strong>Bénéfice :</strong> Process fluide, satisfaction client, marge optimisée.</p>
       </div>
-    </div>
 
-    <!-- 5. Chatbot IA -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">5. Chatbot IA Re-FAP</h2>
-        <p>
-          Notre assistant conversationnel, actuellement en bêta, offre déjà :
-        </p>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>Qualification automatique de la demande</li>
-          <li>Identification rapide des pannes FAP</li>
-          <li>Redirection géolocalisée vers votre réseau de garages partenaires</li>
-          <li>Interface simple, disponible 24/7 via web ou mobile</li>
+      <!-- Chatbot IA -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">5. Chatbot IA Re-FAP</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Qualification automatique des demandes</li>
+          <li>Identification rapide des pannes</li>
+          <li>Redirection géolocalisée 24/7</li>
+          <li>Interface web/mobile simple</li>
         </ul>
-        <p>
-          Des premiers retours indiquent un <strong>taux de conversion élevé</strong> et un parcours fluide pour le client.
-        </p>
+        <p class="mt-2">Taux de conversion élevé et expérience utilisateur optimisée.</p>
       </div>
-    </div>
-
-    <!-- 6. Communication -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">6. Communication & Économie d’échelle</h2>
-        <p>Re-FAP pilote l’ensemble des campagnes :</p>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>Vidéos explicatives & démonstrations</li>
-          <li>Réseaux sociaux (TikTok, Facebook, YouTube)</li>
-          <li>Programme d’affiliation influenceurs</li>
+      <!-- Communication -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">6. Communication</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Vidéos explicatives</li>
+          <li>Réseaux sociaux & influenceurs</li>
           <li>Emailings & push locaux</li>
-          <li>Page cobrandée : <a href="https://auto.re-fap.fr" class="text-blue-600">auto.re-fap.fr</a></li>
+          <li>Page cobrandée <a href="https://auto.re-fap.fr" class="text-blue-600">auto.re-fap.fr</a></li>
         </ul>
-        <p>
-          Chaque nouvelle machine renforce la visibilité globale et profite à l’ensemble du réseau,
-          vous permettant de <strong>bénéficier d’une économie d’échelle</strong> sur la génération de trafic.
-        </p>
+        <p class="mt-2">Économie d’échelle : chaque machine amplifie le trafic global.</p>
       </div>
-    </div>
 
-    <!-- 7. Conditions tarifaires -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">7. Conditions tarifaires</h2>
-        <p>Loyer mensuel par machine (HT) :</p>
-        <ul class="list-disc pl-6">
+      <!-- Conditions tarifaires -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">7. Conditions tarifaires</h2>
+        <p>Loyer mensuel HT :</p>
+        <ul class="list-disc pl-5 space-y-1">
           <li>Année 1 : 3 500 €/mois</li>
           <li>Année 2 : 2 500 €/mois</li>
           <li>Année 3 : 2 250 €/mois</li>
         </ul>
-        <p class="italic text-gray-600">
-          Le tarif reste identique par rapport aux premières installations,
-          alors que la valeur livrée a considérablement augmenté : V2, kit, bot, com…
-          C’est une remise implicite à coût constant.
-        </p>
+        <p class="mt-2 italic text-gray-600">Même tarif que la version initiale ; valeur livrée <strong>multipliée</strong>.</p>
       </div>
-    </div>
-
-    <!-- 8. Prochains étapes -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="p-6 space-y-4">
-        <h2 class="text-2xl font-semibold">8. Prochaines étapes</h2>
-        <ul class="list-disc pl-6 space-y-2">
-          <li>Validation des 8 sites à équiper</li>
-          <li>Coordination avec les garages partenaires</li>
-          <li>Configuration du chatbot et des campagnes</li>
-          <li>Lancement officiel et suivi mensuel</li>
+      <!-- Prochaines étapes -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-2">8. Prochaines étapes</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Validation des 8 sites</li>
+          <li>Coordination garages partenaires</li>
+          <li>Configuration bot & campagnes</li>
+          <li>Lancement & suivi mensuel</li>
         </ul>
       </div>
     </div>
 
-    <!-- CTA final -->
+    <!-- FAQ Block -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h2 class="text-3xl font-semibold text-center mb-4">FAQ</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h3 class="font-semibold">Engagement minimum ?</h3>
+          <p>3 ans, renouvelable.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Accès au chatbot ?</h3>
+          <p>Via web ou mobile, 24/7.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Suivi des performances ?</h3>
+          <p>Reporting mensuel détaillé.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Personnalisation ?</h3>
+          <p>Contenu et branding ajustables à votre charte.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
     <section class="text-center space-y-4">
-      <button class="bg-green-600 text-white text-lg px-6 py-3 rounded">Je valide le déploiement</button>
+      <button class="bg-green-600 text-white text-lg px-8 py-3 rounded shadow">Je valide le déploiement</button>
     </section>
 
   </div>
