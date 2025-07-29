@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proposition Re-FAP x Carter-Cash</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #content { display: none; }
+    .access-denied { display: none; text-align: center; margin-top: 5rem; font-size: 1.25rem; color: #dc2626; }
+  </style>
   <script>
-    // Simple password protection
-    (function() {
-      const password = prompt("Veuillez entrer le mot de passe pour accéder à cette page :");
-      const valid = password === "re-fap2025"; // Remplacez par votre mot de passe
-      if (!valid) {
-        alert("Accès refusé.");
-        document.body.innerHTML = '<p class="text-center text-red-600 mt-20">Accès refusé. Veuillez contacter l'administrateur.</p>';
+    window.addEventListener('load', function() {
+      const pwd = prompt("Veuillez entrer le mot de passe pour accéder à cette page :");
+      if (pwd === "re-fap2025") {
+        document.getElementById('content').style.display = 'block';
+      } else {
+        document.querySelector('.access-denied').style.display = 'block';
       }
-    })();
+    });
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900">
-  <div class="max-w-5xl mx-auto p-6 space-y-12">
+  <div class="access-denied">Accès refusé. Veuillez contacter l'administrateur.</div>
+  <div id="content" class="max-w-5xl mx-auto p-6 space-y-12">
     <!-- Header -->
     <section class="text-center space-y-4">
       <h1 class="text-4xl font-bold">Proposition Re-FAP x Carter-Cash</h1>
