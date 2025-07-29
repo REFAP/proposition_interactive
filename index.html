@@ -1,0 +1,123 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+export default function ReFapProposition() {
+  return (
+    <div className="max-w-5xl mx-auto p-6 space-y-12">
+      {/* Header */}
+      <section className="text-center space-y-4">
+        <h1 className="text-4xl font-bold">Proposition Re-FAP x Carter-Cash</h1>
+        <p className="text-lg text-muted-foreground">
+          Déploiement national – Écosystème FAP clé en main pour générer du trafic, fidéliser et créer de la marge localement.
+        </p>
+      </section>
+
+      {/* Intro */}
+      <Card>
+        <CardContent className="space-y-4 p-6">
+          <h2 className="text-2xl font-semibold">Contexte</h2>
+          <p>
+            Après deux ans de test validé sur 2 centres Carter-Cash, vous avez sollicité l’ajout de 8 machines. Nous proposons ici un modèle tout-en-un, éprouvé, pour industrialiser la solution dans votre réseau.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Proposition */}
+      <Card>
+        <CardContent className="space-y-4 p-6">
+          <h2 className="text-2xl font-semibold">Ce que comprend l’abonnement</h2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Machine V2 + kit de vidange autonome</li>
+            <li>Maintenance et hotline incluses</li>
+            <li>Mise en place d’un réseau local de garages partenaires</li>
+            <li>Déploiement du chatbot Re-FAP (bêta active)</li>
+            <li>Campagnes de communication et génération de leads</li>
+            <li>Suivi, animation, reporting</li>
+          </ul>
+        </CardContent>
+      </Card>
+
+      {/* Modèle économique */}
+      <Card>
+        <CardContent className="space-y-4 p-6">
+          <h2 className="text-2xl font-semibold">Conditions tarifaires</h2>
+          <p>Loyer mensuel par machine (HT) :</p>
+          <ul className="list-disc pl-6">
+            <li>Année 1 : 3 500 €/mois</li>
+            <li>Année 2 : 2 500 €/mois</li>
+            <li>Année 3 : 2 250 €/mois</li>
+          </ul>
+          <p className="italic text-muted-foreground">
+            Le tarif est resté le même, alors que la valeur a augmenté : machine V2, kit vidange, chatbot, et plus.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Bot + conversion */}
+      <Card>
+        <CardContent className="space-y-4 p-6">
+          <h2 className="text-2xl font-semibold">Fonctionnement du dispositif</h2>
+          <p>
+            Le client décrit son problème via notre chatbot. Si c’est un FAP, il est orienté vers un garage partenaire proche du Carter-Cash équipé. Le garage prend en charge, nettoie le FAP sur place, et remonte le système dans la journée.
+          </p>
+          <p>
+            Résultat : un service simple, rapide et jusqu’à 10× moins cher que le remplacement. Chacun y gagne : client, garage, Carter-Cash.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Testimonials */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-center">Ce qu’en disent nos partenaires pilotes</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <CardContent className="p-6">
+              <p className="italic">“Grâce à Re-FAP, notre machine tourne à plein régime, et les clients reviennent plus souvent. Le support est réactif et le bot nous envoie des rendez-vous qualitatifs.”</p>
+              <p className="mt-4 font-semibold">— Garage AutoPlus, Lyon</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-6">
+              <p className="italic">“La mise en place a été rapide, et le kit de vidange nous a rendu totalement autonomes. Le marketing génère un vrai flux de clients.”</p>
+              <p className="mt-4 font-semibold">— Garage MecaClean, Toulouse</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-center">FAQ</h2>
+        <Card>
+          <CardContent className="p-6">
+            <h3 className="font-semibold">Quel engagement pour le déploiement ?</h3>
+            <p>3 ans minimum. Vous pouvez ensuite prolonger ou adapter selon les résultats.</p>
+            <h3 className="mt-4 font-semibold">Comment le chatbot est-il accessible ?</h3>
+            <p>Via une interface web intégrée à votre site ou landing, disponible 24/7.</p>
+            <h3 className="mt-4 font-semibold">Comment suivez-vous les performances ?</h3>
+            <p>Un reporting mensuel vous détaille les leads générés, la conversion et les interventions réalisées.</p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Contact form */}
+      <section className="bg-gray-50 p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold text-center">Contact & Validation</h2>
+        <form className="max-w-xl mx-auto space-y-4">
+          <Input placeholder="Nom et Prénom" />
+          <Input type="email" placeholder="Email professionnel" />
+          <Input placeholder="Société / Équipe" />
+          <Textarea placeholder="Vos questions ou remarques" rows={4} />
+          <Button type="submit" className="w-full">Envoyer ma demande</Button>
+        </form>
+      </section>
+
+      {/* CTA */}
+      <section className="text-center space-y-4">
+        <Button className="text-lg px-6 py-3">Je valide le déploiement</Button>
+      </section>
+    </div>
+  );
+}
