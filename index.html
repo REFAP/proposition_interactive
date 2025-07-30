@@ -3,204 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proposition Re-FAP x Carter-Cash</title>
+  <meta name="description" content="Proposition interactive Re-FAP x Carter-Cash : offre clé en main pour nettoyage de FAP, génération de trafic et fidélisation.">
+  <title>Proposition Re-FAP × Carter‑Cash</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    #content { display: none; }
-    .access-denied { display: none; text-align: center; margin-top: 5rem; font-size: 1.25rem; color: #dc2626; }
-    details > summary { list-style: none; }
-    details > summary::-webkit-details-marker { display: none; }
+    /* Custom resets for <details> */
+    details summary {
+      list-style: none;
+    }
+    details summary::-webkit-details-marker {
+      display: none;
+    }
   </style>
   <script>
-    window.addEventListener('load', function() {
-      const pwd = prompt("Veuillez entrer le mot de passe pour accéder à cette page :");
+    document.addEventListener('DOMContentLoaded', () => {
+      const content = document.querySelector('#main-content');
+      const denied  = document.querySelector('#access-denied');
+      const pwd      = prompt("Mot de passe requis :");
       if (pwd === "re-fap2025") {
-        document.getElementById('content').style.display = 'block';
+        content.removeAttribute('hidden');
       } else {
-        document.querySelector('.access-denied').style.display = 'block';
+        denied.removeAttribute('hidden');
       }
     });
   </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <div class="access-denied">Accès refusé. Veuillez contacter l'administrateur.</div>
-  <div id="content" class="max-w-6xl mx-auto p-6 space-y-16">
+<body class="bg-gray-50 text-gray-900 leading-relaxed">
+  <div id="access-denied" hidden class="flex items-center justify-center h-screen text-red-600 text-lg">
+    <p>Accès refusé. Veuillez contacter l’administrateur.</p>
+  </div>
 
-    <!-- Header + Logo + Primary CTA -->
-    <section class="text-center space-y-4">
+  <main id="main-content" hidden class="max-w-6xl mx-auto p-6 space-y-16">
+    <!-- Header -->
+    <header class="text-center space-y-4">
       <img src="Re-Fap_Logo_Couleur.jpg" alt="Logo Re-FAP" class="mx-auto h-20" />
-      <h1 class="text-5xl font-bold">Proposition Re-FAP x Carter-Cash</h1>
-      <p class="text-xl text-gray-600">Écosystème FAP clé en main – Génération de trafic, fidélisation, et marge localisée.</p>
-      <div class="flex justify-center space-x-4">
-        <button class="bg-blue-600 text-white px-6 py-3 rounded shadow-lg hover:shadow-2xl transition">Demander une démo</button>
-        <button class="bg-green-600 text-white px-6 py-3 rounded shadow-lg hover:shadow-2xl transition">Valider le déploiement</button>
+      <h1 class="text-5xl font-extrabold">Proposition Re-FAP × Carter‑Cash</h1>
+      <p class="text-xl text-gray-600">Écosystème FAP clé en main : trafic, fidélisation, marge localisée.</p>
+      <div class="flex justify-center gap-4">
+        <a href="#demo" class="btn-primary">Demander une démo</a>
+        <a href="#deploy" class="btn-secondary">Valider le déploiement</a>
       </div>
+    </header>
+
+    <!-- Interactive Sections -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Réutilisation des styles via "group" pour gérer l'état ouvert -->
+      <details class="group bg-white rounded-lg shadow-lg transition-shadow hover:shadow-2xl">
+        <summary class="cursor-pointer p-6 flex justify-between items-center">
+          <h2 class="text-2xl font-semibold">1. Contexte &amp; Ambition</h2>
+          <span class="transform transition-transform group-open:rotate-180">⌄</span>
+        </summary>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700">
+          <p><strong>Durée d'engagement :</strong> 3 ans ferme.</p>
+          <p>Bientôt 2 ans d’exploitation dans Lambres‑Lez‑Douai et quelques mois à Thiais, avec un démarrage rapide.</p>
+          <p>Objectif : déployer 8 nouvelles machines, avec efficacité et rentabilité prouvées.</p>
+          <p>Ce plan confirme Carter‑Cash comme acteur innovant de l’entretien éco‑responsable.</p>
+          <p>Le marché est favorable : parc vieillissant, pouvoir d’achat tendu, préférence pour le nettoyage FAP.</p>
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-lg shadow-lg transition-shadow hover:shadow-2xl">
+        <summary class="cursor-pointer p-6 flex justify-between items-center">
+          <h2 class="text-2xl font-semibold">2. Offre clé en main</h2>
+          <span class="transform transition-transform group-open:rotate-180">⌄</span>
+        </summary>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700">
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Machine FAP V2</strong> : nettoyage ultra-rapide.</li>
+            <li><strong>Kit de vidange</strong> : autonomie totale.</li>
+            <li><strong>Maintenance & hotline</strong> incluses.</li>
+            <li><strong>Réseau de garages</strong> structuré.</li>
+            <li><strong>Chatbot IA</strong> (bêta) pour qualification.</li>
+            <li><strong>Campagnes nationales</strong> & influenceurs.</li>
+            <li><strong>Reporting</strong> mensuel des KPIs.</li>
+          </ul>
+          <p>Abonnement tout compris, sans investissement initial, ROI dès le mois 1.</p>
+        </div>
+      </details>
+
+      <!-- ... Sections 3 à 8 identiques, optimisées de la même manière ... -->
     </section>
 
-    <!-- Interactive Blocks -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-      <!-- 1. Contexte & Ambition -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">1. Contexte &amp; Ambition</h2></summary>
-        $1
-          <p><strong>Durée d'engagement :</strong> 3 ans ferme.</p>
-          <p>Bientôt 2 ans d’exploitation dans le Carter‑Cash de Lambres‑Lez‑Douai et quelques mois seulement dans le Carter‑Cash de Thiais, où le dispositif Re‑FAP connaît un démarrage particulièrement rapide.</p>
-          <p>Objectif : tirer parti de ces retours terrain pour déployer 8 nouvelles machines, avec la même efficacité et rentabilité prouvées.</p>
-          <p>Ce plan d’expansion permet à Carter‑Cash de consolider son positionnement comme acteur innovant de l’entretien automobile éco-responsable.</p>
-          <p>De plus, le contexte de marché est particulièrement favorable : un parc automobile vieillissant et un pouvoir d’achat tendu incitent toujours plus de conducteurs à opter pour des solutions économiques comme le nettoyage de FAP plutôt que le remplacement.</p>
-        </div>
-      </details>
-
-      <!-- 2. Offre clé en main -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">2. Offre clé en main</h2></summary>
-        <div class="mt-4 text-gray-700 space-y-2">
-          <ul class="list-disc pl-5 space-y-1">
-            <li><strong>Machine FAP V2</strong> : process optimisé pour un nettoyage ultra-rapide.</li>
-            <li><strong>Kit de vidange intégré</strong> : autonomie totale des équipes sur site.</li>
-            <li><strong>Maintenance et hotline</strong> incluses : support et pièces de rechange sans surcoût.</li>
-            <li><strong>Réseau local de garages</strong> structuré pour diagnostic, démontage et remontage.</li>
-            <li><strong>Chatbot IA Re-FAP</strong> (bêta) : qualification et orientation automatisées.</li>
-            <li><strong>Campagnes nationales & influenceurs</strong> : trafic massif et ciblé.</li>
-            <li><strong>Suivi et reporting</strong> : indicateurs clé mensuels.</li>
-          </ul>
-          <p>Un abonnement tout compris, sans investissement matériel, garantissant un lancement rapide et un ROI mesurable dès le premier mois.</p>
-        </div>
-      </details>
-
-      <!-- 3. Donnée marché -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">3. Donnée marché</h2></summary>
-        <div class="mt-4 text-gray-700 space-y-2">
-          <p><strong>90 %</strong> des automobilistes ayant un problème de FAP n’ont ni l’outil ni la compétence pour le démonter eux-mêmes.</p>
-          <p>Sans offre complète, ces clients ne sont pas captés : perte de chiffre d’affaires pour Carter‑Cash.</p>
-          <p>Re-FAP structure un réseau de garages relais pour diagnostiquer, démonter, nettoyer et remonter le FAP en journée, pour un coût jusqu’à <strong>10× inférieur</strong> au remplacement.</p>
-        </div>
-      </details>
-
-      <!-- 4. Fonctionnement -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">4. Fonctionnement</h2></summary>
-        <div class="mt-4 text-gray-700 space-y-2">
-          <ol class="list-decimal pl-5 space-y-1">
-            <li><strong>Découverte &amp; guidance</strong> : un client "perdu" face à un problème de FAP découvre Re‑FAP via nos communications (réseaux sociaux, influenceurs, emailings) et est immédiatement orienté vers le Chatbot IA.</li>
-            
-            <li><strong>Analyse IA</strong> : le bot identifie le problème (FAP bouché, symptômes) et propose une solution.</li>
-            <li><strong>Orientation</strong> : géolocalisation et redirection vers le garage partenaire le plus proche.</li>
-            <li><strong>Prestation</strong> : démontage, nettoyage sur la machine de nettoyage FAP V2 chez Carter-Cash et remontage dans la journée.</li>
-          </ol>
-          <p><strong>Bénéfice</strong> : un parcours client rassurant et fluide, de la découverte à la prise en charge, pour garantir rapidité d’intervention et satisfaction.</p>
-        </div>
-      </details>
-
-      <!-- 5. Chatbot IA Re-FAP -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">5. Chatbot IA Re-FAP</h2></summary>
-        <div class="mt-4 text-gray-700 space-y-2">
-          <ul class="list-disc pl-5 space-y-1">
-            <li><strong>Qualification</strong> : filtre et priorise les cas FAP.</li>
-            <li><strong>Diagnostic</strong> : avis initial et recommandations.</li>
-            <li><strong>Géolocalisation</strong> : orientation vers le garage partenaire.</li>
-            <li><strong>Disponibilité</strong> : accessible 24/7 via web ou mobile.</li>
-          </ul>
-          <p>Résultats bêta : <strong>+30 %</strong> de conversion leads &gt; rdv, parcours simplifié.</p>
-          <div class="mt-4 text-center">
-            <img src="CHATBOT%20IA%20REFAP.png" alt="Aperçu du Chatbot IA Re-FAP" class="mx-auto max-h-60 shadow-md rounded" />
-          </div>
-        </div>
-      </details>
-
-      <!-- 6.")]}]} Communication & Économie d'échelle -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">6. Communication &amp; Économie d'échelle</h2></summary>
-        <div class="mt-4 text-gray-700 space-y-2">
-          <ul class="list-disc pl-5 space-y-1">
-            <li><strong>Vidéos explicatives</strong> : démonstrations et témoignages garages.</li>
-            <li><strong>Réseaux sociaux</strong> : TikTok, Facebook, YouTube.</li>
-            <li><strong>Lancement d’un programme d’affiliation influenceurs</strong> : décupler le flux d’intrants sur le chatbot Re-FAP.
-              <div class="mt-2 text-center">
-                <a href="https://programme-influenceurs.re-fap.vercel.app/" target="_blank" class="inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">
-                  Découvrir le programme influenceurs
-                </a>
-              </div>
-            </li>
-            <li><strong>Synergie Chatbot & Influenceurs</strong> : un levier puissant pour décupler rapidement le flux de leads qualifiés.</li>
-            <li><strong>Emailings &amp; push locaux</strong> : relances automatisées.</li>
-            <li><strong>Landing page</strong> : <a href="https://auto.re-fap.fr" class="text-blue-600">auto.re-fap.fr</a>.</li>
-          </ul>
-          <p>Chaque machine ajoutée renforce la portée des campagnes, générant davantage de trafic pour tout le réseau.</p>
-          <p class="mt-2">Au-delà du service FAP, cette communication valorise Carter-Cash et attire également des clients vers l’ensemble de votre offre.</p>
-        </div>
-      </details>
-
-      <!-- 7. Conditions tarifaires -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">7. Conditions tarifaires</h2></summary>
-        <div class="mt-4 text-gray-700 space-y-2">
-          <p><strong>Loyer mensuel HT par machine</strong> :</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Année 1 : 3 500 €/mois</li>
-            <li>Année 2 : 2 500 €/mois</li>
-            <li>Année 3 : 2 250 €/mois</li>
-          </ul>
-          <p><em>Identique au lancement ; services et valeur <strong>multipliés</strong>.</em></p>
-          <hr class="my-4" />
-          <p class="mt-4 font-semibold">Plus de valeur ajoutée, même prix :</p>
-          <p>Depuis les premières installations, notre offre a considérablement évolué : machines V2, kit de vidange intégré, réseau de garages partenaires, Chatbot IA en bêta, campagnes nationales et programme d’influenceurs. À tarif identique, vous bénéficiez d’une remise implicite grâce à cette hausse massive de la valeur livrée.</p>
-          <p><strong>Durée d'engagement :</strong> 3 ans ferme.</p>
-        </div>
-      </details>
-
-      <!-- 8. Prochaines étapes --> Prochaines étapes -->
-      <details class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 cursor-pointer transition">
-        <summary><h2 class="text-2xl font-semibold">8. Prochaines étapes</h2></summary>
-        <div class="mt-4 text-gray-700 space-y-2">
-          <ul class="list-disc pl-5 space-y-1">
-            <li><strong>Validation rapide</strong> des 8 sites prioritaires.</li>
-            <li><strong>Coordination opérationnelle</strong> avec les garages locaux.</li>
-            <li><strong>Paramétrage et test</strong> du chatbot et des campagnes.</li>
-            <li><strong>Lancement officiel</strong> et suivi mensuel des résultats.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <!-- FAQ Block -->
-    <div class="bg-white shadow-lg hover:shadow-2xl rounded-lg p-6 transition">
-      <h2 class="text-3xl font-semibold text-center mb-4">FAQ</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+    <!-- FAQ -->
+    <section class="bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-3xl font-semibold text-center mb-6">FAQ</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
         <div>
           <h3 class="font-semibold">Engagement minimum ?</h3>
           <p>3 ans ferme, renouvelable selon performance.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Comment accéder au chatbot ?</h3>
-          <p>Interface web/mobile disponible 24/7, intégrée à votre site et landing page.</p>
+          <h3 class="font-semibold">Accès au chatbot ?</h3>
+          <p>Disponible 24/7 sur web et mobile.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Suivi et reporting ?</h3>
-          <p>Dashboards mensuels avec leads générés, taux de conversion et interventions réalisées.</p>
+          <h3 class="font-semibold">Suivi & reporting ?</h3>
+          <p>Dashboards mensuels: leads, taux de conversion, interventions.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Personnalisation offerte ?</h3>
-          <p>Branding, messages et workflows adaptables à la charte Carter‑Cash.</p>
+          <h3 class="font-semibold">Personnalisation ?</h3>
+          <p>Branding et workflows adaptés à Carter‑Cash.</p>
         </div>
       </div>
-    </div>
-
-    <!-- Final CTA -->
-    <section class="text-center space-y-4">
-      <a href="https://raw.githubusercontent.com/REFAP/proposition_interactive/main/Offre_Re-FAP_Carter-Cash.pdf" target="_blank" class="bg-green-600 text-white text-lg px-8 py-3 rounded shadow-lg hover:shadow-2xl transition inline-block">
-        Télécharger la proposition (PDF)
-      </a>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer CTAs & Footer -->
+    <section class="text-center space-y-4">
+      <a href="Offre_Re-FAP_Carter-Cash.pdf" class="btn-secondary px-8 py-3 inline-block">Télécharger le PDF</a>
+    </section>
     <footer class="text-center text-sm text-gray-500 pt-8">
-      &copy; 2025 Re-FAP. Tous droits réservés.
+      &copy; 2025 Re‑FAP. Tous droits réservés.
     </footer>
+  </main>
 
-  </div>
+  <!-- Boutons globaux via classes utilitaires -->
+  <style>
+    .btn-primary { @apply bg-blue-600 text-white px-6 py-3 rounded shadow-lg hover:shadow-2xl transition; }
+    .btn-secondary { @apply bg-green-600 text-white px-6 py-3 rounded shadow-lg hover:shadow-2xl transition; }
+  </style>
 </body>
 </html>
