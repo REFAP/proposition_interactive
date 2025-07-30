@@ -3,214 +3,638 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Proposition interactive Re-FAP x Carter-Cash : écosystème FAP clé en main pour Carter-Cash.">
-  <title>Proposition Re-FAP × Carter‑Cash</title>
+  <meta name="description" content="Proposition interactive Re-FAP x Carter-Cash : écosystème FAP clé en main pour Carter-Cash.">
+  <title>Proposition Re-FAP × Carter‑Cash</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    details summary { list-style: none; }
-    details summary::-webkit-details-marker { display: none; }
-    .btn-primary { @apply bg-blue-600 text-white px-6 py-3 rounded shadow-lg hover:shadow-2xl transition; }
-    .btn-success { @apply bg-green-600 text-white px-6 py-3 rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .gradient-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    
+    .glass-effect {
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .floating-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .reveal-animation {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: reveal 0.8s ease-out forwards;
+    }
+    
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .number-badge {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .stats-counter {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    details summary { 
+      list-style: none; 
+      position: relative;
+      padding-left: 60px;
+    }
+    
+    details summary::-webkit-details-marker { 
+      display: none; 
+    }
+    
+    .progress-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      z-index: 1000;
+      transition: width 0.3s ease;
+    }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const content = document.getElementById('content');
-      const denied = document.querySelector('.access-denied');
-      const pwd = prompt("Veuillez entrer le mot de passe :");
-      if (pwd && pwd.trim() === 're-fap2025') content.removeAttribute('hidden');
-      else denied.removeAttribute('hidden');
-    });
-  </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <div class="access-denied hidden text-red-600 text-center mt-20 text-lg">Accès refusé. Veuillez contacter l’administrateur.</div>
-  <div id="content" hidden class="max-w-6xl mx-auto p-6 space-y-16">
-
-    <!-- Header -->
-    <header class="text-center space-y-4">
-      <img src="Re-Fap_Logo_Couleur.jpg" alt="Logo Re-FAP" class="mx-auto h-20" />
-      <h1 class="text-5xl font-bold">Proposition Re-FAP × Carter‑Cash</h1>
-      <p class="text-xl text-gray-600">Écosystème FAP clé en main : génération de trafic, fidélisation et marge localisée.</p>
-      <div class="flex justify-center space-x-4">
-        <a href="#point1" class="btn-primary">Voir l’offre</a>
-        <a href="Offre_Re-FAP_Carter-Cash.pdf" target="_blank" class="btn-success">Télécharger (PDF)</a>
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+  <!-- Progress Indicator -->
+  <div class="progress-indicator" id="progress"></div>
+  
+  <!-- Password Protection -->
+  <div class="access-denied hidden fixed inset-0 bg-red-600 bg-opacity-90 flex items-center justify-center z-50">
+    <div class="text-white text-center">
+      <div class="text-6xl mb-4">🔒</div>
+      <h2 class="text-2xl font-bold mb-2">Accès refusé</h2>
+      <p>Veuillez contacter l'administrateur.</p>
+    </div>
+  </div>
+  
+  <div id="content" hidden>
+    <!-- Hero Section -->
+    <section class="min-h-screen gradient-bg relative overflow-hidden">
+      <!-- Animated Background Elements -->
+      <div class="absolute inset-0">
+        <div class="absolute top-20 left-20 w-72 h-72 bg-white bg-opacity-10 rounded-full floating-animation"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-white bg-opacity-5 rounded-full floating-animation" style="animation-delay: -3s;"></div>
       </div>
-    </header>
-
-    <!-- Points -->
-    <section class="space-y-8">
-      <!-- 1 -->
-      <details id="point1" class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="flex justify-between items-center p-6 cursor-pointer">
-          <h2 class="text-2xl font-semibold">1. Contexte</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700">
-          <p>Après deux ans de test concluant dans votre réseau, avec déjà deux machines en place, vous nous avez sollicité pour équiper 8 magasins supplémentaires. L’objectif est clair : passer à l’échelle avec un modèle éprouvé, efficace, et capable de générer du chiffre d’affaires régulier.</p>
+      
+      <div class="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center text-white">
+        <!-- Logo placeholder -->
+        <div class="w-24 h-24 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-8 reveal-animation">
+          <span class="text-3xl font-bold text-white">RF</span>
         </div>
-      </details>
-
-      <!-- 2 -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="flex justify-between items-center p-6 cursor-pointer">
-          <h2 class="text-2xl font-semibold">2. Ce que nous proposons : un modèle clé en main</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700">
-          <p>Notre offre repose sur un abonnement mensuel tout compris, sans investissement initial. Ce forfait intègre :</p>
-          <ul class="list-disc pl-5">
-            <li>La machine de nettoyage FAP (dernière version)</li>
-            <li>Son installation complète</li>
-            <li>Un kit de vidange intégré, pour que vos équipes soient autonomes dans la maintenance (nouveau)</li>
-            <li>Le support technique et les interventions en cas de besoin</li>
-            <li>Et surtout : un dispositif commercial et opérationnel complet pour que la machine ne reste jamais inactive</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- 3 -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="flex justify-between items-center p-6 cursor-pointer">
-          <h2 class="text-2xl font-semibold">3. Pourquoi ce modèle fonctionne</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700">
-          <p>En réalité, la majorité des clients qui ont un problème de FAP n’ont ni l’outil ni les compétences pour le démonter eux-mêmes. Ils cherchent un garage qui prend tout en charge. Or, les magasins Carter-Cash ne proposent pas ce service.</p>
-          <p>C’est pourquoi, autour de chaque machine, nous mettons en place un petit réseau local de garages partenaires, capables de :</p>
-          <ul class="list-disc pl-5">
-            <li>Diagnostiquer le véhicule</li>
-            <li>Démonter le FAP</li>
-            <li>L’apporter pour nettoyage dans votre magasin Carter-Cash</li>
-            <li>Le remonter dans la journée</li>
-          </ul>
-          <p>Résultat :</p>
-          <ul class="list-disc pl-5">
-            <li>Le client paie beaucoup moins qu’un remplacement (jusqu’à 10× moins cher)</li>
-            <li>Le garage garde une bonne marge</li>
-            <li>Carter-Cash capte un trafic utile et fidèle</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- 4 -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="flex justify-between items-center p-6 cursor-pointer">
-          <h2 class="text-2xl font-semibold">4. Un système d’orientation intelligent (Beta)</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700">
-          <p>L’assistant IA joue un rôle central dans votre parcours client :</p>
-          <ul class="list-disc pl-5">
-            <li><strong>Identification précise</strong> : analyse en temps réel des symptômes décrits.</li>
-            <li><strong>Qualification automatisée</strong> : filtre et priorise les cas nécessitant une intervention urgente.</li>
-            <li><strong>Guidage client</strong> : redirection instantanée vers le garage partenaire le plus adapté.</li>
-            <li><strong>Optimisation continue</strong> : apprentissage sur les retours et performances terrain.</li>
-          </ul>
-          <div class="mt-4 text-center">
-            <a href="https://re-fap-autoai.vercel.app/" target="_blank" class="btn-success">Voir la démo du Chatbot (Bêta)</a>
+        
+        <h1 class="text-6xl md:text-7xl font-black mb-6 reveal-animation" style="animation-delay: 0.2s;">
+          Re-FAP × <span class="text-yellow-300">Carter‑Cash</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl leading-relaxed reveal-animation" style="animation-delay: 0.4s;">
+          Écosystème FAP clé en main : génération de trafic, fidélisation et marge localisée
+        </p>
+        
+        <!-- Stats Preview -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 reveal-animation" style="animation-delay: 0.6s;">
+          <div class="glass-effect rounded-2xl p-6">
+            <div class="stats-counter text-white">2</div>
+            <p class="text-white text-opacity-90">Machines testées</p>
+          </div>
+          <div class="glass-effect rounded-2xl p-6">
+            <div class="stats-counter text-white">8</div>
+            <p class="text-white text-opacity-90">Nouveaux magasins</p>
+          </div>
+          <div class="glass-effect rounded-2xl p-6">
+            <div class="stats-counter text-white">10×</div>
+            <p class="text-white text-opacity-90">Moins cher</p>
           </div>
         </div>
-      </details>
-
-      <!-- 5 -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="flex justify-between items-center p-6 cursor-pointer">
-          <h2 class="text-2xl font-semibold">5. Une communication centralisée qui fait le travail</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700">
-          <p>Nous prenons aussi en charge toute la communication autour du dispositif :</p>
-          <ul class="list-disc pl-5">
-            <li>Contenus vidéo</li>
-            <li>Réseaux sociaux</li>
-            <li><strong>Influenceurs auto</strong> (nouveau : mise en route d'un programme d'affiliation pour doper le trafic vers le Chatbot IA Re-FAP) : <a href="https://programme-influenceurs.re-fap.vercel.app/" target="_blank" class="text-blue-600 underline">Découvrir le programme</a></li>
-            <li>Emailings</li>
-            <li>Référencement web</li>
-          </ul>
-          <p>Et surtout, nous générons du trafic vers une page dédiée (<a href="https://auto.re-fap.fr" class="text-blue-600">auto.re-fap.fr</a>), où les clients peuvent poser leurs questions, s’informer ou être orientés vers un garage partenaire. Chaque nouvelle implantation renforce l’ensemble du dispositif. Vous profitez pleinement de l’effet de réseau et des économies d’échelle : plus on déploie, plus ça fonctionne.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 reveal-animation" style="animation-delay: 0.8s;">
+          <a href="#overview" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+            Découvrir l'offre
+          </a>
+          <a href="Offre_Re-FAP_Carter-Cash.pdf" target="_blank" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
+            Télécharger (PDF)
+          </a>
         </div>
-      </details>
-
-      <!-- 6 -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="flex justify-between items-center p-6 cursor-pointer">
-          <h2 class="text-2xl font-semibold">6. Conditions</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700">
-          <p><strong>Abonnement par machine (HT) :</strong></p>
-          <ul class="list-disc pl-5">
-            <li>Année 1 : 3 500 €/mois</li>
-            <li>Année 2 : 2 500 €/mois</li>
-            <li>Année 3 : 2 250 €/mois</li>
-            <li>Engagement : 3 ans</li>
-          </ul>
-          <p><strong>Tout est inclus :</strong></p>
-          <ul class="list-disc pl-5">
-            <li>Machine dernière génération</li>
-            <li>Kit de vidange intégré</li>
-            <li>Maintenance</li>
-            <li>Réseau garage partenaire</li>
-            <li>Outil d’orientation client</li>
-            <li>Communication nationale</li>
-            <li>Génération de demandes locales</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- 7 -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="flex justify-between items-center p-6 cursor-pointer">
-          <h2 class="text-2xl font-semibold">7. Une offre qui a évolué sans hausse de prix</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700">
-          <p>Depuis nos premières installations, nous avons considérablement enrichi l’offre :</p>
-          <ul class="list-disc pl-5">
-            <li>Machines plus fiables et plus performantes</li>
-            <li>Autonomie technique sur site (kit vidange)</li>
-            <li>Mise en place de garages partenaires</li>
-            <li>Système d’orientation client en ligne</li>
-            <li>Communication décuplée</li>
-          </ul>
-          <p><em>Et pourtant… le tarif est resté identique. C’est une forme de remise intégrée.</em></p>
-        </div>
-      </details>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="bg-white rounded-lg shadow-lg p-6">
-      <h2 class="text-3xl font-semibold text-center mb-6">FAQ</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
-        <div>
-          <h3 class="font-semibold">Engagement minimum ?</h3>
-          <p>3 ans ferme, renouvelable selon performance.</p>
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">Le modèle qui fonctionne</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">Après deux ans de test concluant, passons à l'échelle avec un écosystème éprouvé</p>
         </div>
-        <div>
-          <h3 class="font-semibold">Comment accéder au chatbot ?</h3>
-          <p>24/7 sur web & mobile, intégré au site et landing.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold">Suivi & reporting ?</h3>
-          <p>Dashboards mensuels : leads, conversions, interventions.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold">Personnalisation ?</h3>
-          <p>Branding & workflows adaptés à Carter‑Cash.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center hover-lift">
+            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Machine dernière génération</h3>
+            <p class="text-gray-600">Technologie éprouvée avec kit de vidange intégré</p>
+          </div>
+          
+          <div class="text-center hover-lift">
+            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Réseau de partenaires</h3>
+            <p class="text-gray-600">Garages locaux qualifiés pour la dépose/repose</p>
+          </div>
+          
+          <div class="text-center hover-lift">
+            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">IA d'orientation</h3>
+            <p class="text-gray-600">Chatbot intelligent pour qualifier et orienter</p>
+          </div>
+          
+          <div class="text-center hover-lift">
+            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Communication intégrée</h3>
+            <p class="text-gray-600">Marketing digital et génération de leads</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="text-center space-y-4">
-      <a href="Offre_Re-FAP_Carter-Cash.pdf" class="btn-success inline-block" target="_blank">Télécharger la proposition (PDF)</a>
+    <!-- Detailed Sections -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Notre proposition détaillée</h2>
+        
+        <div class="space-y-6 max-w-4xl mx-auto">
+          <!-- Section 1 -->
+          <details class="group bg-white rounded-2xl shadow-lg hover-lift overflow-hidden">
+            <summary class="flex items-center p-8 cursor-pointer">
+              <div class="number-badge mr-6">1</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2">Contexte & Opportunité</h3>
+                <p class="text-gray-600">Capitaliser sur le succès des tests déjà réalisés</p>
+              </div>
+              <svg class="w-6 h-6 text-gray-400 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-8 pb-8 border-t border-gray-100">
+              <div class="pt-6 prose prose-lg">
+                <p>Après deux ans de test concluant dans votre réseau, avec déjà <strong>deux machines en place</strong>, vous nous avez sollicité pour équiper <strong>8 magasins supplémentaires</strong>.</p>
+                <p>L'objectif est clair : passer à l'échelle avec un modèle éprouvé, efficace, et capable de générer du chiffre d'affaires régulier.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- Section 2 -->
+          <details class="group bg-white rounded-2xl shadow-lg hover-lift overflow-hidden">
+            <summary class="flex items-center p-8 cursor-pointer">
+              <div class="number-badge mr-6">2</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2">Modèle Clé en Main</h3>
+                <p class="text-gray-600">Abonnement tout compris sans investissement initial</p>
+              </div>
+              <svg class="w-6 h-6 text-gray-400 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-8 pb-8 border-t border-gray-100">
+              <div class="pt-6">
+                <div class="gradient-card text-white rounded-xl p-6 mb-6">
+                  <h4 class="text-xl font-semibold mb-4">Tout inclus dans l'abonnement :</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Machine de nettoyage FAP (dernière version)</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Installation complète</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Kit de vidange intégré (nouveau)</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Support technique complet</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Dispositif commercial opérationnel</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Réseau de garages partenaires</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Section 3 -->
+          <details class="group bg-white rounded-2xl shadow-lg hover-lift overflow-hidden">
+            <summary class="flex items-center p-8 cursor-pointer">
+              <div class="number-badge mr-6">3</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2">Écosystème Gagnant-Gagnant</h3>
+                <p class="text-gray-600">Un réseau local qui profite à tous</p>
+              </div>
+              <svg class="w-6 h-6 text-gray-400 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-8 pb-8 border-t border-gray-100">
+              <div class="pt-6">
+                <div class="bg-blue-50 rounded-xl p-6 mb-6">
+                  <h4 class="text-lg font-semibold text-blue-900 mb-3">Le problème identifié :</h4>
+                  <p class="text-blue-800">La majorité des clients qui ont un problème de FAP n'ont ni l'outil ni les compétences pour le démonter eux-mêmes. Ils cherchent un garage qui prend tout en charge.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span class="text-2xl">💰</span>
+                    </div>
+                    <h5 class="font-semibold mb-2">Client</h5>
+                    <p class="text-sm text-gray-600">Économise jusqu'à 10× par rapport au remplacement</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span class="text-2xl">🔧</span>
+                    </div>
+                    <h5 class="font-semibold mb-2">Garage</h5>
+                    <p class="text-sm text-gray-600">Garde une bonne marge sur l'intervention</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span class="text-2xl">🏪</span>
+                    </div>
+                    <h5 class="font-semibold mb-2">Carter-Cash</h5>
+                    <p class="text-sm text-gray-600">Capte un trafic utile et fidèle</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Section 4 -->
+          <details class="group bg-white rounded-2xl shadow-lg hover-lift overflow-hidden">
+            <summary class="flex items-center p-8 cursor-pointer">
+              <div class="number-badge mr-6">4</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2">IA d'Orientation (Beta)</h3>
+                <p class="text-gray-600">Système intelligent pour optimiser le parcours client</p>
+              </div>
+              <svg class="w-6 h-6 text-gray-400 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-8 pb-8 border-t border-gray-100">
+              <div class="pt-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                      <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="font-semibold">Identification précise</h5>
+                        <p class="text-sm text-gray-600">Analyse en temps réel des symptômes décrits</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="font-semibold">Qualification automatisée</h5>
+                        <p class="text-sm text-gray-600">Filtre et priorise les cas urgents</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                      <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="font-semibold">Guidage client</h5>
+                        <p class="text-sm text-gray-600">Redirection vers le garage le plus adapté</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="font-semibold">Optimisation continue</h5>
+                        <p class="text-sm text-gray-600">Apprentissage sur les performances terrain</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <a href="https://re-fap-autoai.vercel.app/" target="_blank" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                    <span class="mr-2">🤖</span>
+                    Tester le Chatbot (Bêta)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Section 5 -->
+          <details class="group bg-white rounded-2xl shadow-lg hover-lift overflow-hidden">
+            <summary class="flex items-center p-8 cursor-pointer">
+              <div class="number-badge mr-6">5</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2">Communication Centralisée</h3>
+                <p class="text-gray-600">Marketing digital et génération de leads</p>
+              </div>
+              <svg class="w-6 h-6 text-gray-400 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-8 pb-8 border-t border-gray-100">
+              <div class="pt-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  <div class="text-center p-4 bg-red-50 rounded-xl">
+                    <span class="text-2xl mb-2 block">📹</span>
+                    <span class="text-sm font-medium">Contenus vidéo</span>
+                  </div>
+                  <div class="text-center p-4 bg-blue-50 rounded-xl">
+                    <span class="text-2xl mb-2 block">📱</span>
+                    <span class="text-sm font-medium">Réseaux sociaux</span>
+                  </div>
+                  <div class="text-center p-4 bg-green-50 rounded-xl">
+                    <span class="text-2xl mb-2 block">✉️</span>
+                    <span class="text-sm font-medium">Emailings</span>
+                  </div>
+                  <div class="text-center p-4 bg-purple-50 rounded-xl">
+                    <span class="text-2xl mb-2 block">🔍</span>
+                    <span class="text-sm font-medium">SEO</span>
+                  </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 mb-4">
+                  <h5 class="font-semibold text-orange-900 mb-2">🆕 Programme Influenceurs Auto</h5>
+                  <p class="text-orange-800 mb-3">Mise en route d'un programme d'affiliation pour doper le trafic vers le Chatbot IA Re-FAP</p>
+                  <a href="https://programme-influenceurs.re-fap.vercel.app/" target="_blank" class="text-orange-600 hover:text-orange-700 font-medium underline">Découvrir le programme →</a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                  <p class="mb-2"><strong>Génération de trafic vers :</strong> <a href="https://auto.re-fap.fr" class="text-blue-600 hover:text-blue-700">auto.re-fap.fr</a></p>
+                  <p class="text-gray-600">Chaque nouvelle implantation renforce l'ensemble du dispositif. Vous profitez pleinement de l'effet de réseau et des économies d'échelle.</p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-6">Conditions Tarifaires</h2>
+          <p class="text-xl text-gray-600">Abonnement dégressif sur 3 ans</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center">
+              <h3 class="text-lg font-semibold text-blue-900 mb-2">Année 1</h3>
+              <div class="text-3xl font-bold text-blue-600 mb-2">3 500 €</div>
+              <p class="text-blue-700">/mois HT</p>
+            </div>
+            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center">
+              <h3 class="text-lg font-semibold text-green-900 mb-2">Année 2</h3>
+              <div class="text-3xl font-bold text-green-600 mb-2">2 500 €</div>
+              <p class="text-green-700">/mois HT</p>
+            </div>
+            <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 text-center">
+              <h3 class="text-lg font-semibold text-purple-900 mb-2">Année 3</h3>
+              <div class="text-3xl font-bold text-purple-600 mb-2">2 250 €</div>
+              <p class="text-purple-700">/mois HT</p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 rounded-2xl p-8">
+            <h3 class="text-2xl font-semibold mb-6 text-center">Évolution de l'offre sans hausse de prix</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-3 text-green-600">✅ Améliorations intégrées :</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Machines plus performantes</li>
+                  <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Kit vidange autonome</li>
+                  <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Réseau garages partenaires</li>
+                  <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Système d'orientation IA</li>
+                  <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Communication décuplée</li>
+                </ul>
+              </div>
+              <div class="flex items-center justify-center">
+                <div class="text-center">
+                  <div class="text-4xl font-bold text-gray-800 mb-2">Tarif inchangé</div>
+                  <p class="text-gray-600 italic">Une forme de remise intégrée</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Questions Fréquentes</h2>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-2xl p-6 hover-lift">
+            <h3 class="font-semibold text-lg mb-3 text-purple-600">Engagement minimum ?</h3>
+            <p class="text-gray-700">3 ans ferme, renouvelable selon performance.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 hover-lift">
+            <h3 class="font-semibold text-lg mb-3 text-purple-600">Comment accéder au chatbot ?</h3>
+            <p class="text-gray-700">24/7 sur web & mobile, intégré au site et landing.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 hover-lift">
+            <h3 class="font-semibold text-lg mb-3 text-purple-600">Suivi & reporting ?</h3>
+            <p class="text-gray-700">Dashboards mensuels : leads, conversions, interventions.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 hover-lift">
+            <h3 class="font-semibold text-lg mb-3 text-purple-600">Personnalisation ?</h3>
+            <p class="text-gray-700">Branding & workflows adaptés à Carter‑Cash.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold text-white mb-6">Prêt à passer à l'échelle ?</h2>
+        <p class="text-xl text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
+          Rejoignez l'écosystème Re-FAP et transformez votre approche du marché FAP
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="Offre_Re-FAP_Carter-Cash.pdf" target="_blank" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+            📄 Télécharger la proposition (PDF)
+          </a>
+          <a href="https://re-fap-autoai.vercel.app/" target="_blank" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
+            🤖 Tester le Chatbot
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center text-sm text-gray-500 pt-8">
-      &copy; 2025 Re‑FAP. Tous droits réservés.
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6 text-center">
+        <div class="mb-6">
+          <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">RF</span>
+          </div>
+          <h3 class="text-xl font-semibold">Re-FAP</h3>
+        </div>
+        <p class="text-gray-400 mb-4">Écosystème FAP nouvelle génération</p>
+        <p class="text-sm text-gray-500">&copy; 2025 Re‑FAP. Tous droits réservés.</p>
+      </div>
     </footer>
-
   </div>
+
+  <script>
+    // Password protection
+    document.addEventListener('DOMContentLoaded', () => {
+      const content = document.getElementById('content');
+      const denied = document.querySelector('.access-denied');
+      const pwd = prompt("Veuillez entrer le mot de passe :");
+      
+      if (pwd && pwd.trim() === 're-fap2025') {
+        content.removeAttribute('hidden');
+        
+        // Add scroll progress indicator
+        window.addEventListener('scroll', () => {
+          const progress = document.getElementById('progress');
+          const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+          progress.style.width = Math.min(scrolled, 100) + '%';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+        
+        // Add reveal animations on scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.hover-lift, details').forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'all 0.6s ease-out';
+          observer.observe(el);
+        });
+        
+      } else {
+        denied.removeAttribute('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
