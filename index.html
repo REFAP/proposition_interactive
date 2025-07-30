@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Offre commerciale Re-FAP x Carter-Cash : pack complet de nettoyage FAP et génération de trafic.">
+  <meta name="description" content="Proposition interactive Re-FAP x Carter-Cash : écosystème FAP clé en main pour Carter-Cash.">
   <title>Proposition Re-FAP × Carter‑Cash</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Réinitialisation <details> */
+    /* Reset pour <details> */
     details summary { list-style: none; }
     details summary::-webkit-details-marker { display: none; }
     /* Boutons */
@@ -17,142 +17,157 @@
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const content = document.getElementById('main-content');
-      const denied = document.getElementById('access-denied');
-      const pwd = prompt("Mot de passe :");
-      if (pwd && pwd.trim() === "re-fap2025") content.classList.remove('hidden');
-      else denied.classList.remove('hidden');
+      const content = document.getElementById('content');
+      const denied = document.querySelector('.access-denied');
+      const pwd = prompt("Veuillez entrer le mot de passe :");
+      if (pwd && pwd.trim() === 're-fap2025') content.removeAttribute('hidden');
+      else denied.removeAttribute('hidden');
     });
   </script>
 </head>
-<body class="bg-gray-50 text-gray-900 leading-relaxed">
-  <div id="access-denied" class="hidden flex items-center justify-center h-screen text-red-600 text-lg">
-    Accès refusé. Veuillez contacter l’administrateur.
-  </div>
-  <main id="main-content" class="hidden max-w-6xl mx-auto p-6 space-y-16">
+<body class="bg-gray-50 text-gray-900">
+  <div class="access-denied hidden text-red-600 text-center mt-20 text-lg">Accès refusé. Veuillez contacter l’administrateur.</div>
+  <div id="content" hidden class="max-w-6xl mx-auto p-6 space-y-16">
 
     <!-- Header -->
     <header class="text-center space-y-4">
       <img src="Re-Fap_Logo_Couleur.jpg" alt="Logo Re-FAP" class="mx-auto h-20" />
-      <h1 class="text-5xl font-extrabold">Offre Re-FAP × Carter‑Cash</h1>
-      <p class="text-xl text-gray-600">Déploiement national – Pack complet de nettoyage FAP en magasin.</p>
-      <div class="flex justify-center gap-4">
+      <h1 class="text-5xl font-bold">Proposition Re-FAP × Carter‑Cash</h1>
+      <p class="text-xl text-gray-600">Écosystème FAP clé en main : génération de trafic, fidélisation et marge localisée.</p>
+      <div class="flex justify-center space-x-4">
         <a href="#point1" class="btn-primary">Voir l’offre</a>
-        <a href="Offre_Re-FAP_Carter-Cash.pdf" class="btn-success" target="_blank">Télécharger (PDF)</a>
+        <a href="Offre_Re-FAP_Carter-Cash.pdf" target="_blank" class="btn-success">Télécharger (PDF)</a>
       </div>
     </header>
 
-    <!-- Sections -->
-    <section class="space-y-8">
-      <!-- 1. Contexte -->
+    <!-- Points interactifs -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- 1. Contexte & Ambition -->
       <details id="point1" class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">1. Contexte</h2>
+        <summary class="flex justify-between items-center p-6 cursor-pointer">
+          <h2 class="text-2xl font-semibold">1. Contexte &amp; Ambition</h2>
           <span class="transform transition-transform group-open:rotate-180">⌄</span>
         </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4">
-          <p>Après deux ans de tests concluants (Lambres-Lez-Douai, Thiais), vous souhaitez équiper 8 nouveaux sites.</p>
-          <p>Objectif : passer à l’échelle avec un modèle éprouvé, générateur de trafic et de revenus.</p>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700">
+          <p><strong>Durée d'engagement :</strong> 3 ans ferme.</p>
+          <p>Bientôt 2 ans d’exploitation à Lambres-Lez-Douai et Thiais avec un démarrage rapide.</p>
+          <p>Objectif : déployer 8 nouvelles machines, efficacité et rentabilité prouvées.</p>
+          <p>Marché favorable : parc vieillissant, pouvoir d’achat tendu.</p>
         </div>
       </details>
 
-      <!-- 2. Modèle clé en main -->
+      <!-- 2. Offre clé en main -->
       <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">2. Modèle clé en main</h2>
+        <summary class="flex justify-between items-center p-6 cursor-pointer">
+          <h2 class="text-2xl font-semibold">2. Offre clé en main</h2>
           <span class="transform transition-transform group-open:rotate-180">⌄</span>
         </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4">
-          <p>Abonnement mensuel tout compris :</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Machine FAP V2 & installation.</li>
-            <li>Kit de vidange intégré.</li>
-            <li>Support technique & maintenance.</li>
-            <li>Dispositif commercial (chatbot, campagnes, reporting).</li>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700">
+          <ul class="list-disc pl-5 space-y-2">
+            <li><strong>Machine FAP V2</strong>: nettoyage ultra-rapide.</li>
+            <li><strong>Kit de vidange</strong>: autonomie totale.</li>
+            <li><strong>Maintenance & hotline</strong> incluses.</li>
+            <li><strong>Réseau de garages</strong> partenaires.</li>
+            <li><strong>Chatbot IA</strong> (bêta) pour qualification.</li>
+            <li><strong>Campagnes & influenceurs</strong>.</li>
+            <li><strong>Reporting</strong> mensuel.</li>
           </ul>
-          <p>ROI dès le premier mois, sans investissement initial.</p>
+          <p>Abonnement sans investissement, ROI immédiat.</p>
         </div>
       </details>
 
-      <!-- 3. Pourquoi ça fonctionne -->
+      <!-- 3. Donnée marché -->
       <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">3. Pourquoi ça fonctionne</h2>
+        <summary class="flex justify-between items-center p-6 cursor-pointer">
+          <h2 class="text-2xl font-semibold">3. Donnée marché</h2>
           <span class="transform transition-transform group-open:rotate-180">⌄</span>
         </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4">
-          <p>La plupart des automobilistes ne peuvent pas démonter leur FAP ; ils recherchent un service complet.</p>
-          <p>Notre réseau de garages prend en charge :</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Diagnostic et démontage.</li>
-            <li>Nettoyage sur machine.</li>
-            <li>Remontage le jour même.</li>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700">
+          <p><strong>90 %</strong> des automobilistes ne peuvent pas démonter leur FAP.</p>
+          <p>Réseau de garages pour diagnostic, démontage, nettoyage, remontage en journée.</p>
+          <p>Coût jusqu’à <strong>10×</strong> inférieur au remplacement.</p>
+        </div>
+      </details>
+
+      <!-- 4. Fonctionnement -->
+      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
+        <summary class="flex justify-between items-center p-6 cursor-pointer">
+          <h2 class="text-2xl font-semibold">4. Fonctionnement</h2>
+          <span class="transform transition-transform group-open:rotate-180">⌄</span>
+        </summary>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700">
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Découverte & orientation via chatbot.</li>
+            <li>Analyse IA et recommandations.</li>
+            <li>Géolocalisation et redirection garage.</li>
+            <li>Démontage, nettoyage et remontage en journée.</li>
+          </ol>
+          <p>Bénéfice : parcours client fluide et rassurant.</p>
+        </div>
+      </details>
+
+      <!-- 5. Chatbot IA Re-FAP -->
+      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
+        <summary class="flex justify-between items-center p-6 cursor-pointer">
+          <h2 class="text-2xl font-semibold">5. Chatbot IA Re-FAP</h2>
+          <span class="transform transition-transform group-open:rotate-180">⌄</span>
+        </summary>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700 text-center">
+          <ul class="list-disc pl-5 space-y-2 inline-block text-left">
+            <li>Qualification & priorisation des cas.</li>
+            <li>Diagnostic initial & recommandations.</li>
+            <li>Géolocalisation vers garage.</li>
+            <li>Accessible 24/7 web & mobile.</li>
           </ul>
-          <p>Résultats : <strong>10×</strong> moins cher, marge garage, trafic fidélisé.</p>
-        </div>
-      </details>
-
-      <!-- 4. Orientation intelligente -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">4. Orientation intelligente (Beta)</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4 text-center">
-          <p>Chatbot IA analyse les symptômes, détecte un FAP bouché et redirige vers le garage partenaire.</p>
+          <p>+30 % de conversion leads → rdv.</p>
           <div class="mt-4">
-            <a href="https://re-fap-autoai.vercel.app/" target="_blank" class="btn-success">Tester l’Assistant IA (Bêta)</a>
+            <a href="https://re-fap-autoai.vercel.app/" target="_blank" class="btn-success">Tester le Chatbot (Bêta)</a>
           </div>
         </div>
       </details>
 
-      <!-- 5. Communication centralisée -->
+      <!-- 6. Communication & Économie d'échelle -->
       <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">5. Communication centralisée</h2>
+        <summary class="flex justify-between	items-center p-6 cursor-pointer">
+          <h2 class="text-2xl font-semibold">6. Communication & Économie d’échelle</h2>
           <span class="transform transition-transform group-open:rotate-180">⌄</span>
         </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4">
-          <p>Gestion complète : vidéos, social, influenceurs, emailings, SEO.</p>
-          <p>Trafic vers <a href="https://auto.re-fap.fr" class="text-blue-600">auto.re-fap.fr</a>.</p>
+        <div class="p-6	border-t border-gray-200 space-y-4 text-gray-700">
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Vidéos explicatives & témoignages.</li>
+            <li>Réseaux sociaux, influenceurs auto.</li>
+            <li>Emailing & push locaux.</li>
+            <li>Landing <a href="https://auto.re-fap.fr" class="text-blue-600">auto.re-fap.fr</a>.</li>
+          </ul>
+          <p>Effet réseau et économies d’échelle accrues à chaque machine.</p>
         </div>
       </details>
 
-      <!-- 6. Conditions -->
+      <!-- 7. Conditions tarifaires -->
       <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">6. Conditions tarifaires</h2>
+        <summary class="flex justify-between	items-center p-6 cursor-pointer">
+          <h2 class="text-2xl font-semibold">7. Conditions tarifaires</h2>
           <span class="transform transition-transform group-open:rotate-180">⌄</span>
         </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4">
-          <p><strong>Abonnement HT/mois :</strong> Année 1 : 3 500 € | Année 2 : 2 500 € | Année 3 : 2 250 €.</p>
-          <p><strong>Engagement :</strong> 3 ans ferme. Tout inclus (machine, garage, comm', orientation).</p>
-        </div>
-      </details>
-
-      <!-- 7. Évolution -->
-      <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">7. Évolution de l’offre</h2>
-          <span class="transform transition-transform group-open:rotate-180">⌄</span>
-        </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4">
-          <p>Améliorations continues sans hausse de prix : fiabilité, autonomie, réseau, IA, comm'.</p>
+        <div class="p-6 border-t border-gray-200 space-y-4 text-gray-700">
+          <p><strong>Loyer HT/mois :</strong> Année 1 : 3 500 € | Année 2 : 2 500 € | Année 3 : 2 250 €.</p>
+          <p><strong>Engagement :</strong> 3 ans ferme. Tout inclus.</p>
         </div>
       </details>
 
       <!-- 8. Prochaines étapes -->
       <details class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition">
-        <summary class="cursor-pointer p-6 flex justify-between items-center">
+        <summary class="flex justify-between	items-center p-6 cursor-pointer">
           <h2 class="text-2xl font-semibold">8. Prochaines étapes</h2>
           <span class="transform transition-transform group-open:rotate-180">⌄</span>
         </summary>
-        <div class="p-6 border-t border-gray-200 text-gray-700 space-y-4">
+        <div class="p-6	border-t border-gray-200 space-y-4 text-gray-700">
           <ul class="list-decimal pl-5 space-y-2">
-            <li>Validation des 8 sites.</li>
-            <li>Installation machines & partenariat garages.</li>
-            <li>Lancement campagnes & chatbot.</li>
-            <li>Suivi mensuel & optimisation.</li>
+            <li>Validation des sites.</li>
+            <li>Installation et formation garages.</li>
+            <li>Lancement des campagnes & chatbot.</li>
+            <li>Suivi mensuel et optimisation.</li>
           </ul>
         </div>
       </details>
@@ -163,25 +178,25 @@
       <h2 class="text-3xl font-semibold text-center mb-6">FAQ</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
         <div>
-          <h3 class="font-semibold">Engagement minimum ?</h3>
-          <p>3 ans ferme, renouvelable selon performance.</p>
+          <h3 class="font-semibold">Engagement minimum ?</h3>
+          <p>3 ans ferme, renouvelable selon performance.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Accès au chatbot ?</h3>
-          <p>Disponible 24/7 sur web et mobile.</p>
+          <h3 class="font-semibold">Comment accéder au chatbot ?</h3>
+          <p>24/7 sur web & mobile, intégré au site et landing.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Suivi & reporting ?</h3>
-          <p>Dashboards mensuels : leads, conversions, interventions.</p>
+          <h3 class="font-semibold">Suivi & reporting ?</h3>
+          <p>Dashboards mensuels : leads, conversions, interventions.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Personnalisation ?</h3>
-          <p>Branding & workflows adaptés à votre charte.</p>
+          <h3 class="font-semibold">Personnalisation ?</h3>
+          <p>Branding & workflows adaptés à Carter‑Cash.</p>
         </div>
       </div>
     </section>
 
-    <!-- Footer CTA -->
+    <!-- Final CTA -->
     <section class="text-center space-y-4">
       <a href="Offre_Re-FAP_Carter-Cash.pdf" class="btn-success inline-block" target="_blank">Télécharger la proposition (PDF)</a>
     </section>
@@ -191,6 +206,6 @@
       &copy; 2025 Re‑FAP. Tous droits réservés.
     </footer>
 
-  </main>
+  </div>
 </body>
 </html>
